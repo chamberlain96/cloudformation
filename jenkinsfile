@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         AWS_DEFAULT_REGION = 'us-east-1' // Replace with your AWS region
-        STACK_NAME = 'desamist-tech' // Replace with your CloudFormation stack name
+        STACK_NAME = 'io-desamist-tech' // Replace with your CloudFormation stack name
         TEMPLATE_FILE = 'develop/template.yml' // Replace with the path to your CloudFormation template file
         //PARAMETERS_FILE = 'path/to/your/parameters.json' // Replace with the path to your CloudFormation parameters file
     }
