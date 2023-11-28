@@ -6,7 +6,7 @@ pipeline {
         STACK_NAME = 'travistech' // Replace with your CloudFormation stack name
         TEMPLATE_FILE = 'develop/travistemplate.yml' // Replace with the path to your CloudFormation template file
         //PARAMETERS_FILE = 'path/to/your/parameters.json' // Replace with the path to your CloudFormation parameters file
-         CAPABILITIES = 'CAPABILITY_IAM'
+        CAPABILITIES = 'CAPABILITY_IAM'
     }
 
     stages {
