@@ -3,15 +3,15 @@ pipeline {
 
     environment {
         AWS_DEFAULT_REGION = 'us-east-1' // Replace with your AWS region
-        STACK_NAME = 'io-desamist-tech' // Replace with your CloudFormation stack name
-        TEMPLATE_FILE = 'develop/template.yml' // Replace with the path to your CloudFormation template file
+        STACK_NAME = 'travistech' // Replace with your CloudFormation stack name
+        TEMPLATE_FILE = 'develop/travistemplate.yml' // Replace with the path to your CloudFormation template file
         //PARAMETERS_FILE = 'path/to/your/parameters.json' // Replace with the path to your CloudFormation parameters file
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/mbahsamuel/io-class-demo-infra.git' // Replace with the URL of your Git repository
+                git 'https://github.com/chamberlain96/cloudformation' // Replace with the URL of your Git repository
             }
         }
 
@@ -20,8 +20,8 @@ pipeline {
         stage('Deploy CloudFormation') {
             steps {
                 script {
-                   //  sh 'aws cloudformation deploy --template-file ${TEMPLATE_FILE} --stack-name ${STACK_NAME} --capabilities CAPABILITY_IAM --region ${AWS_DEFAULT_REGION}'
-                   sh 'aws cloudformation delete-stack --stack-name ${STACK_NAME}  --region ${AWS_DEFAULT_REGION}'
+                 sh 'aws cloudformation deploy --template-file ${TEMPLATE_FILE} --stack-name ${STACK_NAME} --capabilities CAPABILITY_IAM --region ${AWS_DEFAULT_REGION}'
+                  //sh 'aws cloudformation delete-stack --stack-name ${STACK_NAME}  --region ${AWS_DEFAULT_REGION}'
                 }
             }
         }
