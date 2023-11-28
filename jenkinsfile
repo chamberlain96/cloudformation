@@ -6,6 +6,7 @@ pipeline {
         STACK_NAME = 'travistech' // Replace with your CloudFormation stack name
         TEMPLATE_FILE = 'develop/travistemplate.yml' // Replace with the path to your CloudFormation template file
         //PARAMETERS_FILE = 'path/to/your/parameters.json' // Replace with the path to your CloudFormation parameters file
+         CAPABILITIES = 'CAPABILITY_IAM'
     }
 
     stages {
@@ -20,7 +21,7 @@ pipeline {
         stage('Deploy CloudFormation') {
             steps {
                 script {
-                 sh 'aws cloudformation deploy --template-file ${TEMPLATE_FILE} --stack-name ${STACK_NAME}   --region ${AWS_DEFAULT_REGION}'
+                 sh 'aws cloudformation deploy --template-file ${TEMPLATE_FILE} --stack-name ${STACK_NAME}  --capabilities ${CAPABILITIES} --region ${AWS_DEFAULT_REGION}'
                   //sh 'aws cloudformation delete-stack --stack-name ${STACK_NAME}  --region ${AWS_DEFAULT_REGION}'
                 }
             }
